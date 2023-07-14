@@ -24,3 +24,23 @@ Route::get('/history', function () {
 Route::get('/statistics', function () {
     return view('statistics');
 });
+
+
+/*
+// Create
+Route::post('admin/adminTeachers/create', [UserController::class, 'create'])->name('userTeachers.create');
+
+// Read
+Route::get('admin/adminTeachers', function () {
+    $users = User::where('permission', 2)->get();
+    $courses = Course::where('teacher', '')->orWhereNull('teacher')->get();
+
+    return view('admin/adminTeachers', compact('users','courses'));
+});
+
+// Update
+Route::post('admin/adminTeachers', [UserController::class, "update"])->name("userTeachers.update");
+
+// Delete
+Route::post('admin/adminTeachers/delete', [UserController::class, "delete"])->name("userTeachers.delete");
+*/

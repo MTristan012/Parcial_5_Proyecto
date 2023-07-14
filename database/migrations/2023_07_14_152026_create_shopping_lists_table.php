@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('shopping_lists', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('pieces');
             $table->timestamps();
+        });
+
+        Schema::table('shopping_lists', function (Blueprint $table) {
+            $table->unsignedBigInteger('item_id');
+
+            $table->foreign('item_id')->references('id')->on('items');
         });
     }
 
