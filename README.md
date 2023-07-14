@@ -7,6 +7,6 @@
 <a href="https://youtu.be/WxULImf7ulc"><img alt="YouTube" src="https://img.shields.io/badge/YouTube-LINK-red"></a>
 -->
 
-<a href="https://preline.co/index.html"><img alt="preline" src="https://img.shields.io/badge/preline-Link-blue"></a>
-<a href="https://laravel-livewire.com/"><img alt="livewire" src="https://img.shields.io/badge/livewire-Link-pink"></a>
+<a href="https://preline.co/index.html"><img alt="preline" src="https://img.shields.io/badge/preline-v1.9.0-blue"></a>
+<a href="https://laravel-livewire.com/"><img alt="livewire" src="https://img.shields.io/badge/livewire-v2.12.3-pink"></a>
 

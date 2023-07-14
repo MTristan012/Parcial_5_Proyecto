@@ -19,7 +19,7 @@
 <body>
     <div id="app">
         <div class="flex">
-            <aside id="docs-sidebar" class="w-20 min-h-screen bg-[#ffffff] flex flex-col justify-between container">
+            <aside id="docs-sidebar" class="w-20 min-h-screen bg-[#ffffff] flex flex-col justify-between container fixed">
                 <div class="mx-auto my-3">
                     <a class="flex-none text-xl font-semibold dark:text-white" href="{{ url('/') }}" aria-label="Brand">
                         <svg width="42" height="43" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +138,7 @@
                     </a>
                 </button>
             </aside>
-            <section class="w-full flex">
+            <section class="w-full flex ms-20">
                 <section class="flex w-9/12 bg-[#fafafe] container">
                     @yield('main')
                 </section>
