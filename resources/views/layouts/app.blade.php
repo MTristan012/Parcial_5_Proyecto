@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    {{--@livewireStyles--}}
+    @livewireStyles
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
@@ -21,7 +21,7 @@
         <div class="flex">
             <aside id="docs-sidebar" class="w-20 min-h-screen bg-[#ffffff] flex flex-col justify-between container">
                 <div class="mx-auto my-3">
-                    <a class="flex-none text-xl font-semibold dark:text-white" href="#" aria-label="Brand">
+                    <a class="flex-none text-xl font-semibold dark:text-white" href="{{ url('/') }}" aria-label="Brand">
                         <svg width="42" height="43" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M31.5698 2.36509C32.0835 2.36509 32.5 1.94725 32.5 1.43181C32.5 0.916377 32.0835 0.498535 31.5698 0.498535C31.0561 0.498535 30.6396 0.916377 30.6396 1.43181C30.6396 1.94725 31.0561 2.36509 31.5698 2.36509Z"
@@ -90,7 +90,7 @@
                     <ul class="space-y-5">
                         <li>
                             <a class="flex items-center gap-x-3.5 py-2 px-2.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 dark:hover:text-white"
-                                href="#">
+                                href="{{ url('/') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                                     class="bi bi-list-task" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -104,19 +104,21 @@
                         </li>
                         <li>
                             <a class="flex items-center gap-x-3.5 py-2 px-2.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 dark:hover:text-white"
-                                href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-counterclockwise"
-                                    viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
-                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+                                href="{{url('/history')}}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                    class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+                                    <path
+                                        d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
                                 </svg>
                             </a>
                         </li>
                         <li>
                             <a class="flex items-center gap-x-3.5 py-2 px-2.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 dark:hover:text-white"
-                                href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-bar-graph"
-                                    viewBox="0 0 16 16">
+                                href="{{url('statistics')}}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                    class="bi bi-file-bar-graph" viewBox="0 0 16 16">
                                     <path
                                         d="M4.5 12a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1zm3 0a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm3 0a.5.5 0 0 1-.5-.5v-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-1z" />
                                     <path
@@ -126,7 +128,7 @@
                         </li>
                     </ul>
                 </nav>
-                <button class="rounded-full bg-[#f9a109] p-3 mx-auto my-3">
+                <button class="rounded-full bg-[#f9a109] p-3 mx-auto my-3 hover:bg-gray-100 dark:hover:bg-gray-900 dark:hover:text-white">
                     <a class=" text-white" href="#" aria-label="Brand">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-cart4" viewBox="0 0 16 16">
@@ -138,15 +140,15 @@
             </aside>
             <section class="w-full flex">
                 <section class="flex w-9/12 bg-[#fafafe] container">
-                        @yield('main')
+                    @yield('main')
                 </section>
-                <section class="flex w-3/12 container" style="background-color: aqua">
-                        @yield('sidebar')
+                <section class="flex w-3/12 bg-[#fafafe] container">
+                    @yield('sidebar')
                 </section>
             </section>
         </div>
     </div>
-    {{--@livewireScripts--}}
+    @livewireScripts
 </body>
 
 </html>
