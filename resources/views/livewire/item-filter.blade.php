@@ -40,8 +40,7 @@
                 <div class="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                     @foreach($items as $item)
                     @if ($item->category === $itemCategory->category)
-                    <div class="group flex flex-col bg-white border shadow-md rounded-xl"
-                        href="#">
+                    <div class="group flex flex-col bg-white border shadow-md rounded-xl">
                         <div class="p-3 md:p-4">
                             <div class="flex justify-between items-center">
                                 <div>
