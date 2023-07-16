@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-@livewire('item')
+@livewire('statistics')
 @endsection
 
 @section('sidebar')
