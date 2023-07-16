@@ -11,7 +11,7 @@
             </h1>
         </div>
         <div>
-            <div class="relative">
+            <div class="relative me-6">
                 <input wire:model="filterItem" type="text" id="hs-leading-icon" name="hs-leading-icon"
                     class="py-3 px-4 pl-11 block w-full rounded-md text-sm border-2 border-black"
                     placeholder="search item">
@@ -52,7 +52,7 @@
                                         $ {{$item->price}}
                                     </p>
                                 </div>
-                                <button class="pl-3">
+                                <button class="pl-3" onclick="addToCart({{$item}})">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000" class="bi bi-plus-lg"
                                         viewBox="0 0 16 16">
                                         <path fill-rule="evenodd"
@@ -74,3 +74,14 @@
         @endforeach
     </section>
 </div>
+
+<script>
+    function addToCart(item) {
+    var cartList = document.getElementById("cart");
+    var item = '<div class="">' +
+        '<h4>' + item.name + '</h4>' +
+        '<p>$ ' + item.price + '</p>' +
+        '</div>';
+    cartList.innerHTML += item;
+    }
+</script>

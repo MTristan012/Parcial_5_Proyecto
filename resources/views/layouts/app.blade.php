@@ -142,7 +142,7 @@
                 <section class="flex w-9/12 bg-[#fafafe] container">
                     @yield('main')
                 </section>
-                <section class="flex w-3/12 bg-[#fafafe] container">
+                <section class="ps-3 bg-[#fff0de] min-h-screen" style="position: fixed; top: 0; right: 0; width: 25%">
                     @yield('sidebar')
                 </section>
             </section>
