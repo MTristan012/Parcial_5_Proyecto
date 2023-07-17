@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ItemController;
 use App\Models\Item;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,8 @@ Route::get('/history', function () {
     $categories = Item::select('category')->get();
     return view('history', compact('categories'));
 });
+
+Route::post('/history', [ItemController::class, 'create'])->name('historyItem.create');
 
 Route::get('/statistics', function () {
     return view('statistics');

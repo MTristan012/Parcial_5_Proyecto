@@ -14,4 +14,34 @@ class ItemController extends Controller
 
         return view('items', ["items" => $items]);
     }
+    public function create(Request $request){
+        //dd($request->all());
+
+        $randomPrice = mt_rand(1, 9999) / 100;
+        while ($randomPrice < 0.99) {
+            $randomPrice = mt_rand(1, 9999) / 100;
+        }
+        
+        $item = new Item();
+        $item->name = $request->input('newItemName');
+        $item->note = $request->input('newItemNote');
+        $item->image = $request->input('newItemImage');
+        $item->category = $request->input('newItemCategory');
+        $item->price = $randomPrice;
+
+        if (
+            $item->name !== null && $item->name !== '' &&
+            $item->category !== null && $item->category !== '' &&
+            $item->price !== null && $item->price !== ''
+        ) {
+            try {
+                $item->save();
+                return back();
+            } catch (\Throwable $th) {
+                return back();
+            }
+        } else {
+            return back();
+        }
+    }
 }
