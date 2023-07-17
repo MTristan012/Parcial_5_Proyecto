@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Item;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/history', function () {
-    return view('history');
+    $categories = Item::select('category')->get();
+    return view('history', compact('categories'));
 });
 
 Route::get('/statistics', function () {
