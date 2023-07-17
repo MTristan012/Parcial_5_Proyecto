@@ -46,11 +46,13 @@ class ShoppingListController extends Controller
         }
         try {
             foreach ($shoppingListItems as $item) {
-                ShoppingList::firstOrCreate([
-                    'item_id' => $item->item_id,
-                    'name' => $item->name,
-                    'pieces' => $item->pieces
-                ]);
+                if ($item->pieces > 0) {
+                    ShoppingList::firstOrCreate([
+                        'item_id' => $item->item_id,
+                        'name' => $item->name,
+                        'pieces' => $item->pieces
+                    ]);
+                }
             }
             return back()->with("Correct", "Your shopping list is made");
         } catch (\Throwable $th) {
