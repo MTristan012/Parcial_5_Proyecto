@@ -20,7 +20,7 @@
                     $printedLists = [];
                     @endphp
                     @foreach($shoppingLists as $shoppingList)
-                    @if(!in_array($shoppingList->name, $printedLists))  
+                    @if(!in_array($shoppingList->name, $printedLists))
                     @if(date('F Y', strtotime($date->created_at)) === date('F Y',
                     strtotime($shoppingList->created_at)))
                     <div class="group flex flex-col bg-white border shadow-md rounded-xl">
@@ -72,7 +72,6 @@
                                                     </svg>
                                                 </button>
                                             </div>
-
                                             <div class="p-4 sm:p-10 overflow-y-auto">
                                                 <div class="mb-6 text-center">
                                                     <h3 class="mb-2 text-xl font-bold text-black">
@@ -97,12 +96,15 @@
                                                 <div class="space-y-4">
                                                     @foreach($items as $item)
                                                     @php
-                                                    $shoppingItems = $shoppingLists->where('item_id', $item->id)->where('name', $shoppingList->name);
+                                                    $shoppingItems = $shoppingLists->where('item_id',
+                                                    $item->id)->where('name', $shoppingList->name);
                                                     @endphp
                                                     @foreach($shoppingItems as $shoppingItem)
-                                                    <div class="flex justify-between bg-[#fafafe] border shadow-sm rounded-xl py-8 px-4">
-                                                        <h1>{{ $item->name }}</h1>
-                                                        <p class="text-[#f9a10a]">pieces <span>{{ $shoppingItem->pieces }}</span></p>
+                                                    <div
+                                                        class="flex justify-between bg-[#fafafe] border shadow-sm rounded-xl py-8 px-4">
+                                                        <h1 class="font-semibold">{{ $item->name }}</h1>
+                                                        <p class="text-[#f9a10a] font-semibold">pieces <span>{{ $shoppingItem->pieces
+                                                                }}</span></p>
                                                     </div>
                                                     @endforeach
                                                     @endforeach
