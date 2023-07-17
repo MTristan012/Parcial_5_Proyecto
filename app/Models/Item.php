@@ -18,7 +18,7 @@ class Item extends Model
         'name',
         'note',
         'category',
-        'iamge',
+        'image',
         'price',
     ];
 }

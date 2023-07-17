@@ -9,7 +9,14 @@
     <h1 class="text-3xl mb-10 font-bold">
         Add a new item
     </h1>
-    <form action="" method="post" class="px-3">
+    @if (session('Correct'))
+    <div class="bg-green-500 text-sm text-white rounded-md p-4 my-2" role="alert">{{ session('Correct') }}</div>
+    @endif
+
+    @if (session('Incorrect'))
+    <div class="bg-red-500 text-sm text-white rounded-md p-4 my-2" role="alert">{{ session('Incorrect') }}</div>
+    @endif
+    <form action="{{route('historyItem.create')}}" method="post" class="px-3">
         @csrf
         <div class="mb-5">
             <label for="hs-inline-add-on" class="block text-sm font-medium mb-2">Name</label>
@@ -38,8 +45,8 @@
         <div class="mb-5">
             <label for="hs-select-label" class="block text-sm font-medium mb-2">Category</label>
             <select id="hs-select-label"
-                class="py-3 px-4 pr-9 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500" name="newItemCategory"
-                required>
+                class="py-3 px-4 pr-9 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                name="newItemCategory" required>
                 <option selected>miscellaneous</option>
                 @php
                 $printedCategories = [];
@@ -55,13 +62,16 @@
             </select>
         </div>
         <div>
-            <a type="button" href="{{url('/')}}" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm">
+            <a type="button" href="{{url('/')}}"
+                class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm">
                 Cancel
             </a>
-            <input class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-[#f9a109] text-gray-700 shadow-sm align-middle hover:bg-[#d28707] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm" type="submit" value="Save" name="saveNewItem">
+            <input
+                class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-[#f9a109] text-gray-700 shadow-sm align-middle hover:bg-[#d28707] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm"
+                type="submit" value="Save" name="saveNewItem">
         </div>
     </form>
-    <div class="mt-8">
+    <div class="mt-8 mx-auto">
         <svg width="245" height="203" viewBox="0 0 245 203" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0)">
                 <path
@@ -185,7 +195,8 @@
                 <path
                     d="M73.0568 175.101C69.984 175.101 67.493 172.628 67.493 169.577C67.493 166.526 69.984 164.053 73.0568 164.053C76.1295 164.053 78.6205 166.526 78.6205 169.577C78.6205 172.628 76.1295 175.101 73.0568 175.101Z"
                     fill="white" />
-                <path d="M156.093 89.9788L150.909 89.5109L147.611 81.5574L153.501 78.2822L156.093 89.9788Z" fill="#FFB8B8" />
+                <path d="M156.093 89.9788L150.909 89.5109L147.611 81.5574L153.501 78.2822L156.093 89.9788Z"
+                    fill="#FFB8B8" />
                 <path
                     d="M108.523 111.814C108.35 111.387 108.283 110.926 108.325 110.468C108.368 110.01 108.519 109.568 108.767 109.18C109.015 108.792 109.352 108.467 109.751 108.234C110.15 108 110.599 107.864 111.061 107.837L119.109 107.361L120.294 111.273L112.009 113.532C111.317 113.721 110.579 113.65 109.936 113.333C109.293 113.016 108.79 112.475 108.523 111.814V111.814Z"
                     fill="#FFB8B8" />
@@ -225,7 +236,8 @@
                 <path
                     d="M147.375 80.2706C146.79 80.2706 146.315 79.6422 146.315 78.867C146.315 78.0918 146.79 77.4634 147.375 77.4634C147.961 77.4634 148.436 78.0918 148.436 78.867C148.436 79.6422 147.961 80.2706 147.375 80.2706Z"
                     fill="#FFB8B8" />
-                <path d="M13.8637 187.604H87.218L102.752 114.696H116.008V111.424H100.081L84.5473 184.332H13.8637V187.604Z"
+                <path
+                    d="M13.8637 187.604H87.218L102.752 114.696H116.008V111.424H100.081L84.5473 184.332H13.8637V187.604Z"
                     fill="#3F3D56" />
                 <path
                     d="M76.4684 200.924C72.5689 200.924 69.4077 197.785 69.4077 193.913C69.4077 190.041 72.5689 186.903 76.4684 186.903C80.3679 186.903 83.5291 190.041 83.5291 193.913C83.5291 197.785 80.3679 200.924 76.4684 200.924Z"
@@ -236,11 +248,15 @@
                 <path
                     d="M15.2011 186.063H86.5707L99.1632 124.276H3.38384C2.89511 124.277 2.4122 124.382 1.9683 124.585C1.52441 124.788 1.13005 125.084 0.812395 125.453C0.494741 125.821 0.261321 126.254 0.128166 126.721C-0.00498878 127.188 -0.0347254 127.678 0.0410378 128.157L11.8588 183.225C11.9808 184.018 12.3853 184.74 12.9988 185.261C13.6123 185.782 14.3939 186.067 15.2011 186.063V186.063ZM85.7957 185.129H15.2011C14.6185 185.131 14.0544 184.925 13.6117 184.549C13.169 184.173 12.8771 183.652 12.7892 183.08L0.971429 128.012C0.916633 127.666 0.937994 127.313 1.03404 126.975C1.13008 126.638 1.29855 126.326 1.52781 126.06C1.75707 125.794 2.04171 125.58 2.36211 125.434C2.68252 125.287 3.03109 125.211 3.38384 125.211H98.0205L85.7957 185.129Z"
                     fill="#3F3D56" />
-                <path d="M72.6963 185.865L80.943 124.82L80.0143 124.667L71.7676 185.713L72.6963 185.865Z" fill="#3F3D56" />
-                <path d="M26.8419 185.397L27.7714 185.247L19.7655 124.669L18.836 124.818L26.8419 185.397Z" fill="#3F3D56" />
+                <path d="M72.6963 185.865L80.943 124.82L80.0143 124.667L71.7676 185.713L72.6963 185.865Z"
+                    fill="#3F3D56" />
+                <path d="M26.8419 185.397L27.7714 185.247L19.7655 124.669L18.836 124.818L26.8419 185.397Z"
+                    fill="#3F3D56" />
                 <path d="M48.6891 124.744H49.6305V185.789H48.6891V124.744Z" fill="#3F3D56" />
-                <path d="M94.3543 141.101L94.3566 142.036L3.22793 142.255L3.22565 141.32L94.3543 141.101Z" fill="#3F3D56" />
-                <path d="M9.65636 169.976L89.7148 170.519L89.7084 171.454L9.64992 170.911L9.65636 169.976Z" fill="#3F3D56" />
+                <path d="M94.3543 141.101L94.3566 142.036L3.22793 142.255L3.22565 141.32L94.3543 141.101Z"
+                    fill="#3F3D56" />
+                <path d="M9.65636 169.976L89.7148 170.519L89.7084 171.454L9.64992 170.911L9.65636 169.976Z"
+                    fill="#3F3D56" />
                 <path
                     d="M114.596 115.397C111.736 115.397 109.418 114.141 109.418 112.592C109.418 111.044 111.736 109.788 114.596 109.788C117.456 109.788 119.774 111.044 119.774 112.592C119.774 114.141 117.456 115.397 114.596 115.397Z"
                     fill="#3F3D56" />

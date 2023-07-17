@@ -14,4 +14,8 @@ class ShoppingListController extends Controller
 
         return view('history', ["shoppingLists" => $shoppingLists]);
     }
+    public function create(Request $request){
+        dd($request->all());
+        $listName = $request->input('listName');
+    }
 }

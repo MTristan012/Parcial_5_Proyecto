@@ -51,14 +51,14 @@
         </svg>
     </span>
 </div>
-<form action="" method="post" class="py-5">
+<form action="{{route('shoppingList.create')}}" method="post" class="py-5">
     @csrf
-    <div id="cart" class="px-3">
+    <div id="cart" class="px-3 my-3">
     </div>
     <div class="flex px-3">
         <input type="text"
             class="py-3 px-4 block w-full border-gray-200 rounded-md text-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-[#fff] dark:border-gray-700 dark:text-gray-400 font-bold"
-            placeholder="Enter a name" style="color: black;" required>
+            placeholder="Enter a name" style="color: black;" name="listName" required>
         <input
             class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-[#f9a109] text-gray-700 shadow-sm align-middle hover:bg-[#d28707] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm"
             type="submit" value="Save" name="saveList">

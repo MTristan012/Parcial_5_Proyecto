@@ -36,12 +36,13 @@ class ItemController extends Controller
         ) {
             try {
                 $item->save();
-                return back();
+                return back()->with("Correct", "Item added successfully");
             } catch (\Throwable $th) {
-                return back();
+                dd($th);
+                return back()->with("Incorrect", "Error");
             }
         } else {
-            return back();
+            return back()->with("Incorrect", "Please fill in all the required fields");
         }
     }
 }
