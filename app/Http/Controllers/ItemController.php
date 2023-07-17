@@ -38,7 +38,7 @@ class ItemController extends Controller
                 $item->save();
                 return back()->with("Correct", "Item added successfully");
             } catch (\Throwable $th) {
-                dd($th);
+                //dd($th);
                 return back()->with("Incorrect", "Error");
             }
         } else {

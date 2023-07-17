@@ -104,7 +104,7 @@
                                                     </button>
                                                     <button type="button"
                                                         class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-[#f9a109] text-gray-700 shadow-sm align-middle hover:bg-[#d28707] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm"
-                                                        onclick="addToCart({{$item}})">
+                                                        onclick="addToCart({{$item}})" data-hs-overlay="#modalItem{{$item->id}}">
                                                         Add to list
                                                     </button>
                                                 </div>
@@ -147,7 +147,7 @@
         var itemHTML = '<div class="font-bold flex gap-2 justify-between my-2">' +
             '<h4 class="my-auto">' + item.name + '</h4>' +
             '<div class="ms-16">' + 
-            '<input class="py-3 px-5 block w-full border-gray-200 rounded-full text-sm focus:border-blue-500 focus:ring-blue-500" name="addItemCount' + item.id + '" type="number" min="0" value="1">' +
+            '<input class="py-3 px-5 block w-full border-gray-200 rounded-full text-sm focus:border-blue-500 focus:ring-blue-500" name="addItemCount,' + item.id + '" type="number" min="0" value="1">' +
             '<input name="addItem,' + item.id + '" type="text" value="' + item.name + '" hidden>' +
             '</div>' +
             '</div>';

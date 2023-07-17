@@ -5,8 +5,7 @@
 @endsection
 
 @section('sidebar')
-<div
-    class="border rounded-xl shadow-sm sm:flex bg-[#80485b] py-5 my-5 me-2">
+<div class="border rounded-xl shadow-sm sm:flex bg-[#80485b] py-5 my-5 me-2">
 
     <div class="object-cover mx-auto" alt="Image Description">
         <svg width="81" height="135" viewBox="0 0 81 135" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,6 +50,13 @@
         </svg>
     </span>
 </div>
+@if (session('Correct'))
+<div class="bg-green-500 text-sm text-white rounded-md p-4 my-2" role="alert">{{ session('Correct') }}</div>
+@endif
+
+@if (session('Incorrect'))
+<div class="bg-red-500 text-sm text-white rounded-md p-4 my-2" role="alert">{{ session('Incorrect') }}</div>
+@endif
 <form action="{{route('shoppingList.create')}}" method="post" class="py-5">
     @csrf
     <div id="cart" class="px-3 my-3">
