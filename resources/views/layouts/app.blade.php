@@ -19,7 +19,8 @@
 <body>
     <div id="app">
         <div class="flex">
-            <aside id="docs-sidebar" class="w-20 min-h-screen bg-[#ffffff] flex flex-col justify-between container fixed">
+            <aside id="docs-sidebar"
+                class="w-20 min-h-screen bg-[#ffffff] flex flex-col justify-between container fixed">
                 <div class="mx-auto my-3">
                     <a class="flex-none text-xl font-semibold dark:text-white" href="{{ url('/') }}" aria-label="Brand">
                         <svg width="42" height="43" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -128,15 +129,16 @@
                         </li>
                     </ul>
                 </nav>
-                <button class="rounded-full bg-[#f9a109] p-3 mx-auto my-3 hover:bg-gray-100 dark:hover:bg-gray-900 dark:hover:text-white">
-                    <a class=" text-white" href="#" aria-label="Brand">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-cart4" viewBox="0 0 16 16">
-                            <path
-                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
-                        </svg>
-                    </a>
-                </button>
+                <div class="p-1 mx-auto my-3 relative inline-flex flex-shrink-0 justify-center items-center h-[1.5rem] w-[1.5rem] rounded-xl font-medium bg-[#f9a109] text-gray-700 shadow-sm align-middle focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm hover:bg-gray-100 dark:hover:bg-gray-900 dark:hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#fff"
+                        class="bi bi-cart4" viewBox="0 0 16 16">
+                        <path
+                            d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                    </svg>
+                    <span
+                        class="absolute top-0 right-0 inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium transform -translate-y-1/2 translate-x-1/2 bg-rose-500 text-white"
+                        id="cartCount"></span>
+                </div>
             </aside>
             <section class="w-full flex ms-20">
                 <section class="flex w-9/12 bg-[#fafafe] container">
