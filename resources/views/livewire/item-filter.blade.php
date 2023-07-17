@@ -78,10 +78,9 @@
 <script>
     function addToCart(item) {
     var cartList = document.getElementById("cart");
-    var item = '<div class="">' +
-        '<h4>' + item.name + '</h4>' +
-        '<p>$ ' + item.price + '</p>' +
-        '</div>';
+    var item = '<div class="font-bold">' +
+        '<h4>' + item.name + '</h4>' 
+        + '</div>';
     cartList.innerHTML += item;
     }
 </script>
