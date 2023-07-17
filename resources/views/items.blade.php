@@ -6,9 +6,9 @@
 
 @section('sidebar')
 <div
-    class="bg-white border rounded-xl shadow-sm sm:flex dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7] py-5 my-5 me-2">
+    class="border rounded-xl shadow-sm sm:flex bg-[#80485b] py-5 my-5 me-2">
 
-    <div class=" object-cover" alt="Image Description">
+    <div class="object-cover mx-auto" alt="Image Description">
         <svg width="81" height="135" viewBox="0 0 81 135" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M31.5096 5.27646L16.643 9.25995C16.1203 9.40002 15.6746 9.74201 15.404 10.2107C15.1334 10.6794 15.0601 11.2364 15.2001 11.7591L16.9486 18.2845C17.0887 18.8072 17.4307 19.2529 17.8993 19.5235C18.368 19.7941 18.925 19.8674 19.4477 19.7274L21.9114 19.0673L24.5312 28.8445L34.4706 26.1813L31.8507 16.404L34.3144 15.7439C34.8371 15.6038 35.2828 15.2618 35.5534 14.7931C35.824 14.3245 35.8973 13.7675 35.7572 13.2447L34.0088 6.71934C33.8687 6.1966 33.5267 5.7509 33.058 5.48031C32.5893 5.20971 32.0324 5.13639 31.5096 5.27646Z"
@@ -39,7 +39,7 @@
         </div>
     </div>
 </div>
-<div class="flex justify-between">
+<div class="flex justify-between px-3">
     <span class="text-3xl font-bold">
         Shopping List
     </span>
@@ -53,7 +53,7 @@
 </div>
 <form action="" method="post" class="py-5">
     @csrf
-    <div id="cart">
+    <div id="cart" class="px-3">
     </div>
     <div class="flex px-3">
         <input type="text"

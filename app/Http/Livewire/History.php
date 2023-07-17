@@ -11,7 +11,8 @@ class History extends Component
     public function render()
     {
         $shoppingLists = ShoppingList::all();
+        $items = Item::all();
 
-        return view('livewire.history', compact('shoppingLists'));
+        return view('livewire.history', compact('shoppingLists','items'));
     }
 }
