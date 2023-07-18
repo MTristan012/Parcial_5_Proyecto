@@ -188,7 +188,7 @@ class ItemsTableSeeder extends Seeder
                 'name' => 'Mangoes',
                 'image' => 'http://dummyimage.com/241x100.png/5fa2dd/ffffff',
                 'price' => 65.7,
-                'category' => 'fruit',
+                'category' => 'fruits',
             ],
             [
                 'id' => 26,
