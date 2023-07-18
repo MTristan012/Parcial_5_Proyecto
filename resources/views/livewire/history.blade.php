@@ -4,11 +4,16 @@
         @php
         $dates = [];
         @endphp
-
-        @foreach($shoppingLists as $date)
+    
         @php
-        $formattedDate = date('F Y', strtotime($date->created_at));
+        $sortedLists = $shoppingLists->sortBy('created_at');
         @endphp
+    
+        @foreach($sortedLists as $shoppingList)
+        @php
+        $formattedDate = date('F Y', strtotime($shoppingList->created_at));
+        @endphp
+    
         @if(!in_array($formattedDate, $dates))
         <div>
             <h1 class="my-5 ps-7 font-bold text-md">
@@ -19,21 +24,23 @@
                     @php
                     $printedLists = [];
                     @endphp
-                    @foreach($shoppingLists as $shoppingList)
-                    @if(!in_array($shoppingList->name, $printedLists))
-                    @if(date('F Y', strtotime($date->created_at)) === date('F Y',
-                    strtotime($shoppingList->created_at)))
+    
+                    @foreach($sortedLists as $shoppingListItem)
+                    @if(date('F Y', strtotime($shoppingList->created_at)) === date('F Y',
+                    strtotime($shoppingListItem->created_at)))
+    
+                    @if(!in_array($shoppingListItem->name, $printedLists))
                     <div class="group flex flex-col bg-white border shadow-md rounded-xl">
                         <div class="p-3 md:p-4">
                             <div class="flex justify-between items-center">
                                 <h1 class="font-bold">
-                                    {{$shoppingList->name}}
+                                    {{$shoppingListItem->name}}
                                 </h1>
                                 <div class="flex">
                                     <div class="flex">
                                         <div class="my-auto me-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="#aeaeb1" class="bi bi-calendar2-range" viewBox="0 0 16 16">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#aeaeb1"
+                                                class="bi bi-calendar2-range" viewBox="0 0 16 16">
                                                 <path
                                                     d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
                                                 <path
@@ -41,11 +48,11 @@
                                             </svg>
                                         </div>
                                         <div class="text-[#aeaeb1]">
-                                            {{date('l d.m.Y', strtotime($shoppingList->created_at))}}
+                                            {{date('l d.m.Y', strtotime($shoppingListItem->created_at))}}
                                         </div>
                                     </div>
                                     <button class="my-auto ms-3"
-                                        data-hs-overlay="#hs-notifications{{$shoppingList->id}}">
+                                        data-hs-overlay="#hs-notifications{{$shoppingListItem->id}}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f9a109"
                                             class="bi bi-chevron-right" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd"
@@ -53,7 +60,7 @@
                                         </svg>
                                     </button>
                                 </div>
-                                <div id="hs-notifications{{$shoppingList->id}}"
+                                <div id="hs-notifications{{$shoppingListItem->id}}"
                                     class="hs-overlay hidden w-full h-full fixed top-0 left-0 z-[60] overflow-x-hidden overflow-y-auto">
                                     <div
                                         class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
@@ -62,7 +69,7 @@
                                             <div class="absolute top-2 right-2">
                                                 <button type="button"
                                                     class="inline-flex flex-shrink-0 justify-center items-center h-8 w-8 rounded-md text-gray-500 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-sm dark:focus:ring-gray-700 dark:focus:ring-offset-gray-800"
-                                                    data-hs-overlay="#hs-notifications{{$shoppingList->id}}">
+                                                    data-hs-overlay="#hs-notifications{{$shoppingListItem->id}}">
                                                     <span class="sr-only">Close</span>
                                                     <svg class="w-3.5 h-3.5" width="8" height="8" viewBox="0 0 8 8"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,12 +82,12 @@
                                             <div class="p-4 sm:p-10 overflow-y-auto">
                                                 <div class="mb-6 text-center">
                                                     <h3 class="mb-2 text-xl font-bold text-black">
-                                                        {{$shoppingList->name}}
+                                                        {{$shoppingListItem->name}}
                                                     </h3>
                                                     <div class="flex justify-center">
                                                         <div class="my-auto me-2">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                height="16" fill="#aeaeb1" class="bi bi-calendar2-range"
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                fill="#aeaeb1" class="bi bi-calendar2-range"
                                                                 viewBox="0 0 16 16">
                                                                 <path
                                                                     d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
@@ -89,21 +96,21 @@
                                                             </svg>
                                                         </div>
                                                         <div class="text-[#aeaeb1]">
-                                                            {{date('l d.m.Y', strtotime($shoppingList->created_at))}}
+                                                            {{date('l d.m.Y', strtotime($shoppingListItem->created_at))}}
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="space-y-4">
                                                     @foreach($items as $item)
-                                                    @php
-                                                    $shoppingItems = $shoppingLists->where('item_id',
-                                                    $item->id)->where('name', $shoppingList->name);
-                                                    @endphp
+                                                    <?php
+                                                    $shoppingItems = $sortedLists->where('item_id', $item->id)->where('name', $shoppingListItem->name);
+                                                    ?>
                                                     @foreach($shoppingItems as $shoppingItem)
                                                     <div
                                                         class="flex justify-between bg-[#fafafe] border shadow-sm rounded-xl py-8 px-4">
                                                         <h1 class="font-semibold">{{ $item->name }}</h1>
-                                                        <p class="text-[#f9a10a] font-semibold">pieces <span>{{ $shoppingItem->pieces
+                                                        <p class="text-[#f9a10a] font-semibold">pcs <span>{{
+                                                                $shoppingItem->pieces
                                                                 }}</span></p>
                                                     </div>
                                                     @endforeach
@@ -116,10 +123,10 @@
                             </div>
                         </div>
                     </div>
-                    @endif
                     @php
-                    $printedLists[] = $shoppingList->name;
+                    $printedLists[] = $shoppingListItem->name;
                     @endphp
+                    @endif
                     @endif
                     @endforeach
                 </div>

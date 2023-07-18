@@ -29,12 +29,9 @@ Route::get('/history', function () {
 Route::post('/history/create', [ItemController::class, 'create'])->name('historyItem.create');
 
 Route::get('/statistics', function () {
-    return view('statistics');
+    $shoppingLists = ShoppingList::all();
+    $items = Item::all();
+    return view('statistics', compact('shoppingLists','items'));
 });
 
 Route::post('/create', [ShoppingListController::class, 'create'])->name('shoppingList.create');
-
-/*
-// Delete
-Route::post('admin/adminTeachers/delete', [UserController::class, "delete"])->name("userTeachers.delete");
-*/
